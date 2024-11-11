@@ -5,201 +5,318 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Umesh Kumar Reddy - Game Developer, Narrative Designer, and Game Designer Portfolio">
     <title>Umesh Kumar Reddy Portfolio</title>
- <style>
-    body {
-        font-family: 'Press Start 2P', cursive; /* Fun game-like font */
-        margin: 0;
-        padding: 0;
-        background-color: #121212; /* Dark background */
-        color: #f0f0f0; /* Light text for contrast */
-        scroll-behavior: smooth; /* Smooth scrolling */
-    }
+
+<style>
+    /* Base Styles */
+body {
+    font-family: 'Press Start 2P', cursive;
+    margin: 0;
+    padding: 0;
+    background-color: #121212; /* Dark background */
+    color: #f0f0f0; /* Light text for contrast */
+    scroll-behavior: smooth;
+}
+
+header {
+    position: fixed;
+    width: 100%;
+    background-color: #1a1a1a;
+    color: #ff9800;
+    padding: 1em;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    border-bottom: 5px solid #ff9800;
+    box-sizing: border-box;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.6em;
+    white-space: nowrap;
+}
+
+header .nav-container {
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    position: relative;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+header .hamburger {
+    display: none;  /* Initially hidden on large screens */
+    font-size: 2em;
+    cursor: pointer;
+    padding-right: 10px;
+}
+
+header .nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+/* Navigation links styles */
+header .nav a {
+    color: #ff9800;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    white-space: nowrap;
+}
+
+header .nav a:hover {
+    background-color: #ff9800;
+    color: #1a1a1a;
+}
+/* Content Styling */
+.content {
+    padding: 90px 20px; /* Padding to avoid content hiding under the fixed header */
+    max-width: 1200px;
+    margin: auto;
+}
+
+section {
+    margin-bottom: 80px;
+    padding: 30px;
+    background-color: #1e1e1e;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+    color: #ff9800;
+    font-size: 2.5em;
+    border-bottom: 3px solid #ff9800;
+    padding-bottom: 15px;
+    margin-bottom: 40px;
+}
+
+h3 {
+    margin-bottom: 20px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+/* Portfolio Styling */
+.portfolio-item {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 60px;
+    background: linear-gradient(to right, #ff5722, #ff9800);
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+}
+
+.portfolio-item img {
+    max-width: 300px;
+    width: 100%;
+    border-radius: 10px;
+    border: 5px solid #fff;
+}
+
+.portfolio-item .project-info {
+    flex: 1;
+}
+
+.project-link {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 15px;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.project-link:hover {
+    background-color: #ff9800;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 1em;
+    background-color: #1a1a1a;
+    color: white;
+    margin-top: 20px;
+    border-top: 5px solid #ff9800;
+}
+
+a {
+    color: #ff9800;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Social Media Links */
+.social-links a {
+    margin: 0 20px;
+    text-decoration: none;
+    color: #ff9800;
+    font-size: 1.5em;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #333;
+}
+
+/* Typing Effect */
+.typing-effect-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.typing-effect {
+    font-size: 1.5em;
+    font-weight: bold;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 4px solid #ff9800;
+    animation: typing 3s steps(30, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #ff9800; }
+}
+
+/* Contact Info Styling */
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: start;
+}
+
+.contact-info a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #ff9800;
+    text-decoration: none;
+    font-size: 1.3em;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+.contact-info img {
+    width: 30px;
+    height: 30px;
+}
+
+/* Skill Styling */
+.skill {
+    background-color: #333;
+    color: #ff9800;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+ /* Initially hide the nav links */
+ .nav {
+    display: none ;  /* Hide by default */
+    flex-direction: column;
+    gap: 15px;
+    position: absolute;
+    top: 60px;  /* Below the header */
+    left: 0;
+    background-color: #1a1a1a;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Make hamburger menu visible on small screens */
+.hamburger {
+    display: block !important;
+}
+
+/* Show nav links when 'open' class is added */
+.nav.open {
+    display: flex;  /* Show the nav links when hamburger is clicked */
+}
+
+/* Fix header layout for mobile */
+header {
+    padding: 0.8em;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+header h1 {
+    font-size: 1.6em;
+}
+}
+
+@media (max-width: 600px) {
     header {
-        position: fixed;
-        width: 100%;
-        background-color: #1a1a1a;
-        color: #ff9800;
-        padding: 1em;
-        top: 0;
-        left: 0;
-        z-index: 1000;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-        border-bottom: 5px solid #ff9800;
-    }
-    header h1 {
-        margin: 0;
-        font-size: 1.8em; /* Adjusted size to fit better */
-    }
-    header .nav {
-        display: flex;
-        gap: 20px;
-    }
-    header .nav a {
-        color: #ff9800;
-        text-decoration: none;
-        font-weight: bold;
-        padding: 5px 10px;
-        border-radius: 5px;
-        transition: background-color 0.3s;
-    }
-    header .nav a:hover {
-        background-color: #ff9800;
-        color: #1a1a1a;
-    }
-    .content {
-        padding: 90px 20px; /* Padding to avoid content hiding under the fixed header */
-        max-width: 1200px;
-        margin: auto;
-    }
-    section {
-        margin-bottom: 80px; /* Increased margin-bottom for more space between sections */
-        padding: 30px; /* Increased padding for more spacing */
-        background-color: #1e1e1e; /* Darker background for sections */
-        border-radius: 10px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    }
-    h2 {
-        color: #ff9800;
-        font-size: 2.5em; /* Increased font size */
-        border-bottom: 3px solid #ff9800;
-        padding-bottom: 15px; /* Increased padding */
-        margin-bottom: 40px; /* Increased margin */
-    }
-    h3 {
-        margin-bottom: 20px; /* Space below headings */
-    }
-    p {
-        margin-bottom: 20px; /* Space below paragraphs */
-    }
-    .portfolio-item {
-        display: flex;
-        gap: 20px;
-        align-items: center;
-        margin-bottom: 60px; /* Increased margin-bottom */
-        background: linear-gradient(to right, #ff5722, #ff9800);
-        border-radius: 10px;
-        padding: 20px;
-        color: white;
-    }
-    .portfolio-item img {
-        max-width: 300px;
-        width: 100%;
-        border-radius: 10px;
-        border: 5px solid #fff;
-    }
-    .portfolio-item .project-info {
-        flex: 1;
-    }
-    .project-link {
-        display: inline-block;
-        margin-top: 20px; /* Increased margin-top */
-        padding: 10px 15px;
-        background-color: #333;
-        color: white;
-        text-decoration: none;
-        border-radius: 5px;
-        transition: background-color 0.3s;
-    }
-    .project-link:hover {
-        background-color: #ff9800;
-    }
-    footer {
-        text-align: center;
-        padding: 1em;
-        background-color: #1a1a1a;
-        color: white;
-        margin-top: 20px;
-        border-top: 5px solid #ff9800;
-    }
-    a {
-        color: #ff9800;
-        text-decoration: none;
-    }
-    a:hover {
-        text-decoration: underline;
-    }
-    .social-links a {
-        margin: 0 20px; /* Increased margin */
-        text-decoration: none;
-        color: #ff9800;
-        font-size: 1.5em;
-        transition: color 0.3s;
-    }
-    .social-links a:hover {
-        color: #333;
-    }
-    .typing-effect-wrapper {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-    }
-    .typing-effect {
-        font-size: 1.5em; /* Increased font size */
-        font-weight: bold;
-        white-space: nowrap;
-        overflow: hidden;
-        border-right: 4px solid #ff9800;
-        animation: typing 3s steps(30, end), blink-caret 0.75s step-end infinite;
-    }
-    @keyframes typing {
-        from { width: 0; }
-        to { width: 100%; }
-    }
-    @keyframes blink-caret {
-        from, to { border-color: transparent; }
-        50% { border-color: #ff9800; }
-    }
-    .contact-info {
-        display: flex;
+        padding: 0.8em;
         flex-direction: column;
-        gap: 20px; /* Increased gap */
-        align-items: start;
+        align-items: flex-start;
     }
-    .contact-info a {
-        display: flex;
-        align-items: center;
-        gap: 15px; /* Increased gap */
-        color: #ff9800;
-        text-decoration: none;
-        font-size: 1.3em; /* Increased font size */
+
+    header h1 {
+        font-size: 1.4em;
     }
-    .contact-info a:hover {
-        text-decoration: underline;
-    }
-    .contact-info img {
-        width: 30px; /* Increased icon size */
-        height: 30px; /* Increased icon size */
-    }
-    .skill {
-        background-color: #333;
-        color: #ff9800;
-        padding: 15px; /* Increased padding */
-        margin: 15px 0; /* Increased margin */
-        border-radius: 5px;
-        display: inline-block;
-    }
+}
+
 </style>
-
-
     <!-- Adding Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<header>
-    <h1>Umesh Kumar Reddy</h1>
-    <nav class="nav">
-        <a href="#home">Home</a>
-        <a href="#projects">Projects</a>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
-    </nav>
-</header>
+    <header>
+        <h1>Umesh Kumar Reddy</h1>
+        <nav class="nav-container">
+            <!-- Hamburger menu -->
+            <div class="hamburger" id="hamburger-menu">&#9776;</div>
+            
+            <!-- Navigation links -->
+            <div class="nav">
+                <a href="#home">Home</a>
+                <a href="#projects">Projects</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#education">Education</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+    
 
 <div class="content">
     <!-- Home Section -->
@@ -208,7 +325,7 @@
         <div class="typing-effect-wrapper">
             <img src="https://yt3.ggpht.com/FgQw7jyf7TW7Z4mNUM-t8KnBwzu0yxZcsqPPjO7z8tiWomjxNmrObGCjsfAKC6NSuaIC2nYyhzo=s176-c-k-c0x00ffffff-no-rj-mo" alt="Umesh Kumar Reddy" style="border-radius: 50%; border: 5px solid #ff9800;">
             <div>
-                <h3 class="typing-effect" id="typing-text">CS Graduate | Game Developer | Story Writer | Code Enthusiast</h3>
+                <h3 class="typing-effect" id="typing-text">CS Graduate | Game Developer | Game Designer | Story Writer | Code Enthusiast</h3>
                 <div class="social-links">
                     <a href="https://www.instagram.com/noobdevtalks/" target="_blank">📸</a>
                     <a href="https://www.linkedin.com/in/umeshreddymallella/" target="_blank">🔗</a>
@@ -221,7 +338,7 @@
 
   <!-- Projects Section -->
   <section id="projects">
-      <h2>My Projects</h2>
+      <h2> Games</h2>
       <div class="portfolio-item">
           <img src="https://img.itch.zone/aW1nLzE0NzM2MTc1LnBuZw==/315x250%23c/rv5nL4.png" alt="Love and Light Screenshot">
           <div class="project-info">
@@ -250,47 +367,48 @@
     </div>
 
 
-</section>
-  <!-- Design Section -->
-  <section id="Design">
+    </section>
+
+    <!-- Design documents Section -->
+    <section id="Design">
       <h2>Game Design</h2>
-      <div class="portfolio-item">
-          <img src="https://img.itch.zone/aW1nLzE0NzM2MTc1LnBuZw==/315x250%23c/rv5nL4.png" alt="Love and Light Screenshot">
-          <div class="project-info">
-             	 <h3>Love and Light</h3>
-          	  <p>A 2.5D side-scrolling platformer game created for a 48-hour game jam. Explore a unique level with engaging mechanics and visuals.</p>
-          	  <a href="https://narrative-designer.itch.io/love-and-light" class="project-link" target="_blank">Play Game</a>
+         <div class="portfolio-item">
+          <img src="" alt="Fitness Inc">
+             <div class="project-info">
+             	 <h3>Fitness Inc</h3>
+          	  <p>Fitness Inc. is a simulation game where players manage a fitness center, designing workouts, training clients, and expanding their business.</p>
+          	  <a href="https://drive.google.com/file/d/1mzgLs44-NdGz1oBmn2zX8xFafUXPY6Pb/view?usp=sharing" class="project-link" target="_blank">Breakdown Document</a>
+             </div>
+         </div>
+
+         <div class="portfolio-item">
+         <img src="" alt="Mechant dynasties">
+         <div class="project-info">
+            <h3>Merchant Dynasties</h3>
+            <p>Merchant Dynasties is a strategy simulation game where players build and manage a powerful trading empire,
+                navigating market dynamics and forging alliances to expand their wealth and influence across generations.</p>
+            <a href="https://docs.google.com/document/d/1rOzfaiRKvA2ENlU1omY6F5c_8zkp2YDY/edit?usp=sharing&ouid=110947506894229347936&rtpof=true&sd=true" class="project-link" target="_blank">Game Design Document</a>
+         </div>
         </div>
-    </div>
 
-       <div class="portfolio-item">
-        <img src="https://img.itch.zone/aW1nLzEyMjY4Njc3LnBuZw==/315x250%23c/YFj9jP.png" alt="Magical Dash Screenshot">
-        <div class="project-info">
-            <h3>Magical Dash</h3>
-            <p>Magical Dash is a casual PC game developed as part of the MSU Game Design and Development course. Through this project, I improved my skills in level design, C# programming, collision detection, and user experience design.</p>
-            <a href="https://narrative-designer.itch.io/magical-dash" class="project-link" target="_blank">Play Game</a>
+	     <div class="portfolio-item">
+         <img src="" alt="Don't Crash">
+         <div class="project-info">
+            <h3>Don't Crash</h3>
+            <p>It is a 2D endless runner game made for causal and competiive players.</p>
+            <a href="https://drive.google.com/file/d/1QvhcgNUU03HSAw-MB348PssuQRbAJfzW/view" class="project-link" target="_blank">Game Design Document</a>
+         </div>
         </div>
-    </div>
-
-	 <div class="portfolio-item">
-       <img src="https://img.itch.zone/aW1nLzEwNDE0MTI5LnBuZw==/315x250%23c/dH1V0q.png" alt="Project Screenshot">
-        <div class="project-info">
-            <h3>2D Shooter</h3>
-            <p>I developed a 2D shooter game as part of the MSU Game Design and Development course. This project helped me master key game design principles, enhance my skills in C# coding, and implement efficient collision detection systems.</p>
-            <a href="https://narrative-designer.itch.io/2d-shooter" class="project-link" target="_blank">Play Game</a>
-        </div>
-    </div>
 
 
-</section>
-
+    </section>
 
 
 
     <!-- About Me Section -->
     <section id="about">
         <h2>About Me</h2>
-        <p>Hello! I'm Umesh Kumar Reddy, a passionate game developer with a love for narrative design and game creation. My journey in game development has led me through exciting projects and opportunities to craft engaging stories and mechanics. With a strong foundation in Unity and game design, I thrive on creating innovative and enjoyable experiences. Explore my portfolio to see some of the projects I've worked on and get in touch if you'd like to collaborate!</p>
+        <p>Hello! I'm Umesh Kumar Reddy, a passionate game designer and developer with a love for narrative design and game creation. My journey in game development has led me through exciting projects and opportunities to craft engaging stories and mechanics. With a strong foundation in Unity and game design, I thrive on creating innovative and enjoyable experiences. Explore my portfolio to see some of the projects I've worked on and get in touch if you'd like to collaborate!</p>
     </section>
 
     <!-- Skills Section -->
@@ -333,7 +451,7 @@
 
 <script>
     // Typing Effect JavaScript
-    const texts = ["CS Graduate", "Game Developer", "Story Writer", "Code Enthusiast"];
+    const texts = ["CS Graduate", "Game Developer", "Game Designer" ,"Story Writer", "Code Enthusiast"];
     let index = 0;
     let textIndex = 0;
     let currentText = '';
@@ -357,5 +475,17 @@
     })();
 </script>
 
+<script>
+    // Select hamburger menu and the navigation container
+const hamburgerMenu = document.getElementById('hamburger-menu');
+const nav = document.querySelector('.nav');
+
+// Add click event listener to toggle 'open' class on the navigation
+hamburgerMenu.addEventListener('click', () => {
+    nav.classList.toggle('open'); // Toggle the 'open' class to show/hide the navigation links
+});
+
+</script>
+
 </body>
-</html>          
+</html>
